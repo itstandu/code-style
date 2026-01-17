@@ -156,17 +156,31 @@ This package ensures **100% Prettier coverage** for all formatting:
 - ✅ React/JSX formatting rules are disabled (Prettier handles JSX)
 - ✅ Vue template formatting rules are disabled (Prettier handles Vue)
 - ✅ Comprehensive Prettier options cover all formatting scenarios
-- ✅ **Automatic import sorting** with clean grouping:
-  - Type imports (`import type ...`) grouped separately
-  - Built-in modules (`fs`, `path`, `node:*`)
-  - Third-party packages (NPM modules)
-  - Internal aliases (`@/`, `@components/`, etc.)
-  - Relative imports (`./`, `../`)
-  - Blank lines between groups for readability
-  - Specifiers sorted alphabetically within imports
-- ✅ Tailwind CSS class sorting is automatic
+- ✅ Tailwind CSS class sorting is automatic (via `prettier-plugin-tailwindcss`)
 
-**Important:** Make sure your editor/IDE uses Prettier as the default formatter and enables `formatOnSave`. This ensures everyone on the team formats code consistently, including import sorting.
+### Import Sorting Philosophy
+
+**Critical Principle:**
+
+> **Sort import → ESLint. Prettier TUYỆT ĐỐI không làm việc này.**
+
+**Why ESLint, not Prettier?**
+
+- **ESLint understands semantics**: side-effect imports, type vs value imports, module boundaries, aliases
+- **Prettier only formats syntax**: whitespace, commas, line breaks — it doesn't understand import logic
+- **Deterministic vs Context-aware**: Prettier aims for same input → same output. Import sorting needs context and grouping rules
+
+**This package configuration:**
+
+- ✅ **ESLint**: `simple-import-sort` handles all import sorting
+- ✅ **Prettier**: Only formats code (whitespace, quotes, etc.) — **NO import sorting**
+- ✅ **Exception**: Tailwind class sorting (string order, no logic impact)
+
+**Result:** Clean separation of concerns, no conflicts, battle-tested approach.
+
+**Important:** Make sure your editor/IDE:
+- Uses Prettier as default formatter with `formatOnSave`
+- Runs ESLint auto-fix on save (`source.fixAll.eslint`) for import sorting
 
 ## Presets
 

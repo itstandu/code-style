@@ -17,9 +17,6 @@ importers:
       '@angular-eslint/template-parser':
         specifier: ^18.0.0
         version: 18.4.3(eslint@9.39.2)(typescript@5.9.3)
-      '@ianvs/prettier-plugin-sort-imports':
-        specifier: ^4.7.0
-        version: 4.7.0(prettier@3.8.0)
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.0.0
         version: 8.53.0(@typescript-eslint/parser@8.53.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)
@@ -1915,6 +1912,7 @@ snapshots:
       semver: 7.7.3
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
