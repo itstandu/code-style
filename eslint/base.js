@@ -1,14 +1,20 @@
+const prettierConfig = require('eslint-config-prettier')
+
 module.exports = {
   ignores: [
-    'node_modules',
-    'dist',
-    'build',
-    '.next',
-    '.output'
+    '**/node_modules/**',
+    '**/dist/**',
+    '**/build/**',
+    '**/.next/**',
+    '**/.output/**',
+    '**/.turbo/**',
+    '**/.cache/**',
+    '**/coverage/**'
   ],
   languageOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
+    globals: {}
   },
   plugins: {
     'simple-import-sort': require('eslint-plugin-simple-import-sort'),
@@ -16,6 +22,8 @@ module.exports = {
     import: require('eslint-plugin-import')
   },
   rules: {
+    ...prettierConfig.rules,
+
     'no-undef': 'error',
     'no-unreachable': 'error',
     'no-duplicate-imports': 'error',

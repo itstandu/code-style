@@ -1,0 +1,188 @@
+# @itstandu/code-style
+
+Production-ready shared ESLint + Prettier configuration library for JavaScript and TypeScript projects.
+
+## Features
+
+- **ESLint v9** (Flat Config)
+- **Prettier v3** with Tailwind CSS support
+- Supports **JavaScript** and **TypeScript**
+- Framework presets: **React**, **Next.js**, **Vue**, **Angular**, **NestJS**
+- **Node.js** backend support
+- Stable import sorting with `eslint-plugin-simple-import-sort`
+- Auto-fix friendly rules
+- No style rules in ESLint (Prettier handles formatting)
+- Architecture rules via `eslint-plugin-boundaries` (opt-in only)
+
+## Installation
+
+```bash
+pnpm add -D @itstandu/code-style
+```
+
+**Note:** You do NOT need to install `eslint`, `prettier`, or any plugins separately. This package includes all dependencies.
+
+## Usage
+
+### ESLint
+
+Create `eslint.config.js` (or `eslint.config.mjs`) in your project root:
+
+#### Base Preset (Minimal)
+
+```javascript
+const codeStyle = require('@itstandu/code-style')
+
+module.exports = [
+  codeStyle.base,
+  codeStyle.typescript,
+  codeStyle.node
+]
+```
+
+#### Recommended Preset (Better Safety)
+
+```javascript
+const codeStyle = require('@itstandu/code-style')
+
+module.exports = [
+  codeStyle.recommended,
+  codeStyle.typescript,
+  codeStyle.node
+]
+```
+
+#### Strict Preset (Opt-in, includes boundaries)
+
+```javascript
+const codeStyle = require('@itstandu/code-style')
+
+module.exports = [
+  codeStyle.strict,
+  codeStyle.typescript,
+  codeStyle.node
+]
+```
+
+### Framework Presets
+
+#### React
+
+```javascript
+const codeStyle = require('@itstandu/code-style')
+
+module.exports = [
+  codeStyle.recommended,
+  codeStyle.typescript,
+  codeStyle.react
+]
+```
+
+#### Next.js
+
+```javascript
+const codeStyle = require('@itstandu/code-style')
+
+module.exports = [
+  codeStyle.recommended,
+  codeStyle.typescript,
+  codeStyle.next
+]
+```
+
+#### Vue
+
+```javascript
+const codeStyle = require('@itstandu/code-style')
+
+module.exports = [
+  codeStyle.recommended,
+  codeStyle.vue
+]
+```
+
+#### Angular
+
+```javascript
+const codeStyle = require('@itstandu/code-style')
+
+module.exports = [
+  codeStyle.recommended,
+  codeStyle.typescript,
+  codeStyle.angular
+]
+```
+
+#### NestJS
+
+```javascript
+const codeStyle = require('@itstandu/code-style')
+
+module.exports = [
+  codeStyle.recommended,
+  codeStyle.typescript,
+  codeStyle.nest
+]
+```
+
+### Prettier
+
+Create `.prettierrc.js` (or `.prettierrc.cjs`) in your project root:
+
+```javascript
+module.exports = require('@itstandu/code-style/prettier')
+```
+
+Or add to `package.json`:
+
+```json
+{
+  "prettier": "@itstandu/code-style/prettier"
+}
+```
+
+## Presets
+
+### `base`
+Minimal, safe defaults. Good starting point.
+
+### `recommended`
+Enhanced safety rules while remaining practical. Recommended for most projects.
+
+### `strict`
+Opt-in preset with additional rules including:
+- `eslint-plugin-unicorn` (code quality)
+- `eslint-plugin-sonarjs` (bug detection)
+- `eslint-plugin-boundaries` (architecture enforcement, disabled by default)
+
+## Available Configs
+
+- `base` - Base ESLint configuration
+- `javascript` - JavaScript support
+- `typescript` - TypeScript support
+- `node` - Node.js backend rules
+- `react` - React framework rules
+- `next` - Next.js framework rules
+- `vue` - Vue framework rules
+- `angular` - Angular framework rules
+- `nest` - NestJS framework rules
+- `recommended` - Recommended preset
+- `strict` - Strict preset (opt-in)
+
+## Principles
+
+- **Practical and stable** - Designed for long-term use (5-10 years)
+- **Not over-opinionated** - Focuses on bugs, correctness, and maintainability
+- **Auto-fix friendly** - Most rules are auto-fixable
+- **No style rules in ESLint** - Prettier handles all formatting
+- **Stable import sorting** - Uses `eslint-plugin-simple-import-sort` for predictable sorting
+- **Architecture rules optional** - Boundaries enforcement is opt-in only
+
+## Requirements
+
+- Node.js >= 18.0.0
+- TypeScript >= 5.0.0 (peer dependency, optional for JS-only projects)
+
+## License
+
+MIT

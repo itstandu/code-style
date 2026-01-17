@@ -1,5 +1,10 @@
 const react = require('./react')
 
 module.exports = {
-  ...react
+  ...react,
+  ignores: [
+    ...react.ignores,
+    '**/.next/**',
+    '**/out/**'
+  ]
 }

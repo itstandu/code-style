@@ -1,7 +1,7 @@
 {
   "name": "@itstandu/code-style",
   "version": "0.1.0",
-  "description": "Shared ESLint + Prettier config for JS/TS projects",
+  "description": "Production-ready shared ESLint + Prettier configuration for JavaScript and TypeScript projects",
   "type": "commonjs",
   "main": "index.js",
   "exports": {
@@ -11,13 +11,35 @@
   "files": [
     "eslint",
     "prettier",
-    "index.js"
+    "index.js",
+    "README.md"
   ],
+  "keywords": [
+    "eslint",
+    "prettier",
+    "code-style",
+    "linting",
+    "formatting",
+    "typescript",
+    "javascript",
+    "react",
+    "vue",
+    "angular",
+    "nextjs",
+    "nestjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itstandu/code-style.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "eslint": "^9.0.0",
     "prettier": "^3.3.0",
     "prettier-plugin-tailwindcss": "^0.6.0",
-    "@eslint/js": "^9.0.0",
     "eslint-config-prettier": "^9.1.0",
 
     "eslint-plugin-simple-import-sort": "^12.1.0",
@@ -43,11 +65,17 @@
 
     "eslint-plugin-boundaries": "^4.0.0",
     "eslint-plugin-unicorn": "^53.0.0",
-    "eslint-plugin-sonarjs": "^2.0.4",
-
-    "eslint-define-config": "^2.1.0"
+    "eslint-plugin-sonarjs": "^2.0.4"
   },
   "peerDependencies": {
-    "typescript": "*"
+    "typescript": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

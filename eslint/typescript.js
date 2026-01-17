@@ -6,6 +6,8 @@ module.exports = {
     ...base.languageOptions,
     parser: require('@typescript-eslint/parser'),
     parserOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       project: true
     }
   },
@@ -21,7 +23,13 @@ module.exports = {
     '@typescript-eslint/no-misused-promises': 'error',
     '@typescript-eslint/consistent-type-imports': [
       'error',
-      { prefer: 'type-imports' }
-    ]
+      { prefer: 'type-imports', fixStyle: 'inline-type-imports' }
+    ],
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'warn',
+    '@typescript-eslint/prefer-nullish-coalescing': 'warn',
+    '@typescript-eslint/prefer-optional-chain': 'warn'
   }
 }

@@ -7,5 +7,7 @@ module.exports = {
   next: require('./eslint/next'),
   vue: require('./eslint/vue'),
   angular: require('./eslint/angular'),
-  nest: require('./eslint/nest')
+  nest: require('./eslint/nest'),
+  recommended: require('./eslint/recommended'),
+  strict: require('./eslint/strict')
 }
