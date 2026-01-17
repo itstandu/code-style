@@ -17,5 +17,29 @@ module.exports = {
   requirePragma: false,
   vueIndentScriptAndStyle: false,
 
-  plugins: ['prettier-plugin-tailwindcss']
+  plugins: [
+    '@ianvs/prettier-plugin-sort-imports',
+    'prettier-plugin-tailwindcss'
+  ],
+
+  importOrder: [
+    '<TYPES>',
+    '<TYPES>^[./]',
+    '<BUILTIN_MODULES>',
+    '<THIRD_PARTY_MODULES>',
+    '^node:',
+    '^@?\\w',
+    '^@/',
+    '^[./]',
+    '^\\.\\.',
+    '^\\.'
+  ],
+  importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
+  importOrderTypeScriptVersion: '5.0.0',
+  importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
+  importOrderBuiltinModulesToTop: true,
+  importOrderCaseInsensitive: true,
+  importOrderMergeDuplicateImports: true,
+  importOrderCombineTypeAndValueImports: true
 }

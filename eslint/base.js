@@ -48,20 +48,8 @@ module.exports = {
 
     'no-async-promise-executor': 'error',
 
-    'simple-import-sort/imports': [
-      'error',
-      {
-        groups: [
-          ['^\\u0000'],
-          ['^node:'],
-          ['^@?\\w'],
-          ['^@/'],
-          ['^\\.\\.'],
-          ['^\\.']
-        ]
-      }
-    ],
-    'simple-import-sort/exports': 'error',
+    'simple-import-sort/imports': 'off',
+    'simple-import-sort/exports': 'off',
 
     'unused-imports/no-unused-imports': 'error',
     'no-unused-vars': 'off',

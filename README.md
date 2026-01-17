@@ -156,9 +156,17 @@ This package ensures **100% Prettier coverage** for all formatting:
 - ✅ React/JSX formatting rules are disabled (Prettier handles JSX)
 - ✅ Vue template formatting rules are disabled (Prettier handles Vue)
 - ✅ Comprehensive Prettier options cover all formatting scenarios
+- ✅ **Automatic import sorting** with clean grouping:
+  - Type imports (`import type ...`) grouped separately
+  - Built-in modules (`fs`, `path`, `node:*`)
+  - Third-party packages (NPM modules)
+  - Internal aliases (`@/`, `@components/`, etc.)
+  - Relative imports (`./`, `../`)
+  - Blank lines between groups for readability
+  - Specifiers sorted alphabetically within imports
 - ✅ Tailwind CSS class sorting is automatic
 
-**Important:** Make sure your editor/IDE uses Prettier as the default formatter and enables `formatOnSave`. This ensures everyone on the team formats code consistently.
+**Important:** Make sure your editor/IDE uses Prettier as the default formatter and enables `formatOnSave`. This ensures everyone on the team formats code consistently, including import sorting.
 
 ## Presets
 
