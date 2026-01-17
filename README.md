@@ -1,5 +1,8 @@
 # @itstandu/code-style
 
+[![npm version](https://img.shields.io/npm/v/@itstandu/code-style)](https://www.npmjs.com/package/@itstandu/code-style)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Production-ready shared ESLint + Prettier configuration library for JavaScript and TypeScript projects.
 
 ## Features
@@ -17,8 +20,30 @@ Production-ready shared ESLint + Prettier configuration library for JavaScript a
 
 ## Installation
 
+Choose your package manager:
+
+### npm
+
+```bash
+npm install -D @itstandu/code-style
+```
+
+### pnpm
+
 ```bash
 pnpm add -D @itstandu/code-style
+```
+
+### yarn
+
+```bash
+yarn add -D @itstandu/code-style
+```
+
+### bun
+
+```bash
+bun add -d @itstandu/code-style
 ```
 
 **Note:** You do NOT need to install `eslint`, `prettier`, or any plugins separately. This package includes all dependencies.
@@ -224,6 +249,14 @@ Opt-in preset with additional rules including:
 - Node.js >= 18.0.0
 - TypeScript >= 5.0.0 (peer dependency, optional for JS-only projects)
 
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
 ## License
 
 MIT
+
+---
+
+Made with ❤️ by [@itstandu](https://github.com/itstandu)

@@ -31,7 +31,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/itstandu/code-style.git"
+    "url": "git+https://github.com/itstandu/code-style.git"
+  },
+  "homepage": "https://github.com/itstandu/code-style#readme",
+  "bugs": {
+    "url": "https://github.com/itstandu/code-style/issues"
   },
   "license": "MIT",
   "engines": {
