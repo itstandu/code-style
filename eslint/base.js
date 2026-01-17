@@ -16,7 +16,19 @@ module.exports = {
     import: require('eslint-plugin-import')
   },
   rules: {
-    'simple-import-sort/imports': 'error',
+    'simple-import-sort/imports': [
+      'error',
+      {
+        groups: [
+          ['^\\u0000'],
+          ['^node:'],
+          ['^@?\\w'],
+          ['^@/'],
+          ['^\\.\\.'],
+          ['^\\.']
+        ]
+      }
+    ],
     'simple-import-sort/exports': 'error',
 
     'unused-imports/no-unused-imports': 'error',
