@@ -142,6 +142,12 @@ Or add to `package.json`:
 }
 ```
 
+**Optional:** Copy `.prettierignore` from this package to your project root to ignore common files:
+
+```bash
+cp node_modules/@itstandu/code-style/.prettierignore .prettierignore
+```
+
 ### Ensuring Consistent Formatting
 
 This package ensures **100% Prettier coverage** for all formatting:

@@ -21,6 +21,16 @@ module.exports = {
     'unused-imports': require('eslint-plugin-unused-imports'),
     import: require('eslint-plugin-import')
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.mjs', '.cjs']
+      },
+      typescript: {
+        alwaysTryTypes: true
+      }
+    }
+  },
   rules: {
     ...prettierConfig.rules,
 

@@ -12,7 +12,8 @@
     "eslint",
     "prettier",
     "index.js",
-    "README.md"
+    "README.md",
+    ".prettierignore"
   ],
   "keywords": [
     "eslint",

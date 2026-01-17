@@ -8,7 +8,8 @@ module.exports = {
     parserOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-      project: true
+      project: true,
+      tsconfigRootDir: process.cwd()
     }
   },
   plugins: {
