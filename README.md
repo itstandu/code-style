@@ -11,7 +11,8 @@ Production-ready shared ESLint + Prettier configuration library for JavaScript a
 - **Node.js** backend support
 - Stable import sorting with `eslint-plugin-simple-import-sort`
 - Auto-fix friendly rules
-- No style rules in ESLint (Prettier handles formatting)
+- **Complete Prettier coverage** - All formatting handled by Prettier, no conflicts with ESLint
+- No style rules in ESLint (Prettier handles all formatting)
 - Architecture rules via `eslint-plugin-boundaries` (opt-in only)
 
 ## Installation
@@ -140,6 +141,18 @@ Or add to `package.json`:
   "prettier": "@itstandu/code-style/prettier"
 }
 ```
+
+### Ensuring Consistent Formatting
+
+This package ensures **100% Prettier coverage** for all formatting:
+
+- ✅ All ESLint formatting rules are disabled via `eslint-config-prettier`
+- ✅ React/JSX formatting rules are disabled (Prettier handles JSX)
+- ✅ Vue template formatting rules are disabled (Prettier handles Vue)
+- ✅ Comprehensive Prettier options cover all formatting scenarios
+- ✅ Tailwind CSS class sorting is automatic
+
+**Important:** Make sure your editor/IDE uses Prettier as the default formatter and enables `formatOnSave`. This ensures everyone on the team formats code consistently.
 
 ## Presets
 
