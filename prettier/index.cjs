@@ -17,5 +17,5 @@ module.exports = {
   requirePragma: false,
   vueIndentScriptAndStyle: false,
 
-  plugins: ['prettier-plugin-tailwindcss']
+  plugins: ['@prettier/plugin-oxc', 'prettier-plugin-tailwindcss']
 }
