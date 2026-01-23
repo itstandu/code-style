@@ -217,6 +217,47 @@ This package ensures **100% Prettier coverage** for all formatting:
 - Uses Prettier as default formatter with `formatOnSave`
 - Runs ESLint auto-fix on save (`source.fixAll.eslint`) for import sorting
 
+### Editor Configuration
+
+#### VS Code / Cursor
+
+Add to your workspace `.vscode/settings.json` or user settings:
+
+```json
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
+```
+
+**What this does:**
+
+- ✅ **Prettier** formats code on save (whitespace, quotes, etc.)
+- ✅ **ESLint auto-fix** runs on save, which will:
+  - Remove unused imports (`unused-imports/no-unused-imports`)
+  - Sort imports (`simple-import-sort/imports`)
+  - Fix other auto-fixable ESLint issues
+
+**Required extensions:**
+
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
 ## Presets
 
 ### `base`
