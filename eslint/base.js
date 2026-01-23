@@ -1,4 +1,4 @@
-const prettierConfig = require('eslint-config-prettier')
+const prettierConfig = require('eslint-config-prettier');
 
 module.exports = {
   ignores: [
@@ -60,7 +60,14 @@ module.exports = {
     'simple-import-sort/imports': [
       'error',
       {
-        groups: [['^\\u0000'], ['^node:'], ['^@?\\w'], ['^@/'], ['^\\.\\.'], ['^\\.']],
+        groups: [
+          ['^\\u0000'],
+          ['^node:'],
+          ['^@?\\w'],
+          ['^@/'],
+          ['^\\.\\.'],
+          ['^\\.'],
+        ],
       },
     ],
     'simple-import-sort/exports': 'error',
@@ -77,12 +84,22 @@ module.exports = {
     ],
     'no-unused-vars': 'off',
 
-    // STRICT: No eslint-disable comments allowed
-    'no-warning-comments': [
+    // STRICT: Dangerous patterns prevention
+    // Note: To enforce no eslint-disable comments, add @eslint-community/eslint-plugin-eslint-comments
+    'no-restricted-syntax': [
       'error',
       {
-        terms: ['eslint-disable', 'eslint-disable-line', 'eslint-disable-next-line'],
-        location: 'anywhere',
+        selector: 'ForInStatement',
+        message:
+          'for...in loops iterate over the entire prototype chain. Use Object.keys() or for...of instead.',
+      },
+      {
+        selector: 'LabeledStatement',
+        message: 'Labels are rarely needed. Consider refactoring.',
+      },
+      {
+        selector: 'WithStatement',
+        message: '`with` is disallowed in strict mode.',
       },
     ],
 
@@ -91,4 +108,4 @@ module.exports = {
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
   },
-}
+};

@@ -1,4 +1,4 @@
-const base = require('./base')
+const base = require('./base');
 
 module.exports = {
   ...base,
@@ -58,13 +58,22 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'warn',
     '@typescript-eslint/no-require-imports': 'warn',
     '@typescript-eslint/ban-ts-comment': [
-      'warn',
+      'error',
       {
         'ts-expect-error': 'allow-with-description',
-        'ts-ignore': true,
+        'ts-ignore': 'allow-with-description',
         'ts-nocheck': true,
         'ts-check': false,
+        minimumDescriptionLength: 10,
       },
     ],
+
+    // Strict: Prevent common mistakes
+    '@typescript-eslint/no-array-delete': 'error',
+    '@typescript-eslint/no-duplicate-enum-values': 'error',
+    '@typescript-eslint/no-duplicate-type-constituents': 'warn',
+    '@typescript-eslint/no-redundant-type-constituents': 'warn',
+    '@typescript-eslint/no-unsafe-declaration-merging': 'error',
+    '@typescript-eslint/no-useless-empty-export': 'warn',
   },
-}
+};

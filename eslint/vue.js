@@ -1,32 +1,24 @@
-const base = require('./base')
+const ts = require('./typescript');
 
 module.exports = {
-  ...base,
+  ...ts,
   languageOptions: {
-    ...base.languageOptions,
+    ...ts.languageOptions,
     parser: require('vue-eslint-parser'),
     parserOptions: {
       parser: require('@typescript-eslint/parser'),
       ecmaVersion: 'latest',
       sourceType: 'module',
       project: true,
+      extraFileExtensions: ['.vue'],
     },
   },
   plugins: {
-    ...base.plugins,
+    ...ts.plugins,
     vue: require('eslint-plugin-vue'),
-    '@typescript-eslint': require('@typescript-eslint/eslint-plugin'),
   },
   rules: {
-    ...base.rules,
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'off',
-    '@typescript-eslint/no-floating-promises': 'error',
-    '@typescript-eslint/no-misused-promises': 'error',
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
-      { prefer: 'type-imports', fixStyle: 'inline-type-imports' },
-    ],
+    ...ts.rules,
 
     'vue/component-name-in-template-casing': ['warn', 'PascalCase'],
     'vue/component-definition-name-casing': ['warn', 'PascalCase'],
@@ -98,4 +90,4 @@ module.exports = {
     'vue/valid-v-slot': 'error',
     'vue/valid-v-text': 'error',
   },
-}
+};

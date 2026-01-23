@@ -1,4 +1,4 @@
-const node = require('./node')
+const node = require('./node');
 
 module.exports = {
   ...node,
@@ -22,4 +22,4 @@ module.exports = {
     // Allow any for DTOs and decorators
     '@typescript-eslint/no-explicit-any': 'off',
   },
-}
+};
