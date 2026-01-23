@@ -1,6 +1,6 @@
 {
   "name": "@itstandu/code-style",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Production-ready shared ESLint + Prettier configuration for JavaScript and TypeScript projects",
   "type": "commonjs",
   "main": "index.js",
