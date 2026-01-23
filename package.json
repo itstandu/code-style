@@ -1,6 +1,6 @@
 {
   "name": "@itstandu/code-style",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Production-ready shared ESLint + Prettier configuration for JavaScript and TypeScript projects",
   "type": "commonjs",
   "main": "index.js",
@@ -42,9 +42,9 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
-    "@angular-eslint/eslint-plugin": "^19.0.0",
-    "@angular-eslint/eslint-plugin-template": "^19.0.0",
-    "@angular-eslint/template-parser": "^19.0.0",
+    "@angular-eslint/eslint-plugin": "^21.0.0",
+    "@angular-eslint/eslint-plugin-template": "^21.0.0",
+    "@angular-eslint/template-parser": "^21.0.0",
     "@typescript-eslint/eslint-plugin": "^8.53.0",
     "@typescript-eslint/parser": "^8.53.0",
     "eslint": "^9.0.0",
@@ -58,13 +58,13 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-simple-import-sort": "^12.0.0",
     "eslint-plugin-sonarjs": "^3.0.0",
-    "eslint-plugin-unicorn": "^56.0.0",
+    "eslint-plugin-unicorn": "^62.0.0",
     "eslint-plugin-unused-imports": "^4.0.0",
-    "eslint-plugin-vue": "^9.32.0",
+    "eslint-plugin-vue": "^10.0.0",
     "@prettier/plugin-oxc": "^0.1.0",
     "prettier": "^3.8.0",
     "prettier-plugin-tailwindcss": "^0.7.0",
-    "vue-eslint-parser": "^9.4.0"
+    "vue-eslint-parser": "^10.0.0"
   },
   "peerDependencies": {
     "typescript": ">=5.0.0"
@@ -76,5 +76,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowAny": [
+        "@prettier/plugin-oxc"
+      ]
+    }
   }
 }

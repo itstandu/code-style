@@ -72,7 +72,6 @@ module.exports = {
     'vue/prefer-true-attribute-shorthand': 'warn',
     'vue/require-toggle-inside-transition': 'error',
     'vue/use-v-on-exact': 'warn',
-    'vue/valid-v-bind-sync': 'error',
     'vue/valid-v-bind': 'error',
     'vue/valid-v-cloak': 'error',
     'vue/valid-v-else-if': 'error',
