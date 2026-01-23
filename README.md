@@ -57,37 +57,25 @@ Create `eslint.config.js` (or `eslint.config.mjs`) in your project root:
 #### Base Preset (Minimal)
 
 ```javascript
-const codeStyle = require('@itstandu/code-style')
+const codeStyle = require("@itstandu/code-style");
 
-module.exports = [
-  codeStyle.base,
-  codeStyle.typescript,
-  codeStyle.node
-]
+module.exports = [codeStyle.base, codeStyle.typescript, codeStyle.node];
 ```
 
 #### Recommended Preset (Better Safety)
 
 ```javascript
-const codeStyle = require('@itstandu/code-style')
+const codeStyle = require("@itstandu/code-style");
 
-module.exports = [
-  codeStyle.recommended,
-  codeStyle.typescript,
-  codeStyle.node
-]
+module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.node];
 ```
 
 #### Strict Preset (Opt-in, includes boundaries)
 
 ```javascript
-const codeStyle = require('@itstandu/code-style')
+const codeStyle = require("@itstandu/code-style");
 
-module.exports = [
-  codeStyle.strict,
-  codeStyle.typescript,
-  codeStyle.node
-]
+module.exports = [codeStyle.strict, codeStyle.typescript, codeStyle.node];
 ```
 
 ### Framework Presets
@@ -95,60 +83,45 @@ module.exports = [
 #### React
 
 ```javascript
-const codeStyle = require('@itstandu/code-style')
+const codeStyle = require("@itstandu/code-style");
 
-module.exports = [
-  codeStyle.recommended,
-  codeStyle.typescript,
-  codeStyle.react
-]
+module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.react];
 ```
 
 #### Next.js
 
 ```javascript
-const codeStyle = require('@itstandu/code-style')
+const codeStyle = require("@itstandu/code-style");
 
-module.exports = [
-  codeStyle.recommended,
-  codeStyle.typescript,
-  codeStyle.next
-]
+module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.next];
 ```
 
 #### Vue
 
 ```javascript
-const codeStyle = require('@itstandu/code-style')
+const codeStyle = require("@itstandu/code-style");
 
-module.exports = [
-  codeStyle.recommended,
-  codeStyle.vue
-]
+module.exports = [codeStyle.recommended, codeStyle.vue];
 ```
 
 #### Angular
 
 ```javascript
-const codeStyle = require('@itstandu/code-style')
+const codeStyle = require("@itstandu/code-style");
 
 module.exports = [
   codeStyle.recommended,
   codeStyle.typescript,
-  codeStyle.angular
-]
+  codeStyle.angular,
+];
 ```
 
 #### NestJS
 
 ```javascript
-const codeStyle = require('@itstandu/code-style')
+const codeStyle = require("@itstandu/code-style");
 
-module.exports = [
-  codeStyle.recommended,
-  codeStyle.typescript,
-  codeStyle.nest
-]
+module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.nest];
 ```
 
 ### Prettier
@@ -156,7 +129,7 @@ module.exports = [
 Create `.prettierrc.js` (or `.prettierrc.cjs`) in your project root:
 
 ```javascript
-module.exports = require('@itstandu/code-style/prettier')
+module.exports = require("@itstandu/code-style/prettier");
 ```
 
 Or add to `package.json`:
@@ -204,19 +177,24 @@ This package ensures **100% Prettier coverage** for all formatting:
 **Result:** Clean separation of concerns, no conflicts, battle-tested approach.
 
 **Important:** Make sure your editor/IDE:
+
 - Uses Prettier as default formatter with `formatOnSave`
 - Runs ESLint auto-fix on save (`source.fixAll.eslint`) for import sorting
 
 ## Presets
 
 ### `base`
+
 Minimal, safe defaults. Good starting point.
 
 ### `recommended`
+
 Enhanced safety rules while remaining practical. Recommended for most projects.
 
 ### `strict`
+
 Opt-in preset with additional rules including:
+
 - `eslint-plugin-unicorn` (code quality)
 - `eslint-plugin-sonarjs` (bug detection)
 - `eslint-plugin-boundaries` (architecture enforcement, disabled by default)
