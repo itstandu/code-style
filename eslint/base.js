@@ -66,17 +66,25 @@ module.exports = {
     'simple-import-sort/exports': 'error',
 
     // Unused imports - must use plugin for auto-fix
+    // STRICT: No underscore bypass - use `void variable` for intentionally unused
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': [
-      'warn',
+      'error',
       {
         vars: 'all',
-        varsIgnorePattern: '^_',
         args: 'after-used',
-        argsIgnorePattern: '^_',
       },
     ],
     'no-unused-vars': 'off',
+
+    // STRICT: No eslint-disable comments allowed
+    'no-warning-comments': [
+      'error',
+      {
+        terms: ['eslint-disable', 'eslint-disable-line', 'eslint-disable-next-line'],
+        location: 'anywhere',
+      },
+    ],
 
     // Import plugin
     'import/first': 'error',

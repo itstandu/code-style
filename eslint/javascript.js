@@ -12,16 +12,8 @@ module.exports = {
   rules: {
     ...base.rules,
 
-    // Enable JS-specific unused vars (TypeScript config has its own)
+    // JS inherits strict unused-vars from base
+    // STRICT: No underscore bypass - use `void variable` for intentionally unused
     'no-unused-vars': 'off',
-    'unused-imports/no-unused-vars': [
-      'warn',
-      {
-        vars: 'all',
-        varsIgnorePattern: '^_',
-        args: 'after-used',
-        argsIgnorePattern: '^_',
-      },
-    ],
   },
 }
