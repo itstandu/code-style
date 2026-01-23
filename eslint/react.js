@@ -1,4 +1,4 @@
-const ts = require('./typescript')
+const ts = require('./typescript');
 
 module.exports = {
   ...ts,
@@ -45,6 +45,7 @@ module.exports = {
     'react/no-direct-mutation-state': 'error',
     'react/no-unescaped-entities': 'off',
     'react/no-unknown-property': 'error',
+    'react/no-unstable-nested-components': ['warn', { allowAsProps: true }],
     'react/self-closing-comp': 'off',
 
     'react/jsx-boolean-value': 'off',
@@ -98,4 +99,4 @@ module.exports = {
     'jsx-a11y/scope': 'warn',
     'jsx-a11y/tabindex-no-positive': 'warn',
   },
-}
+};
