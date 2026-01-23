@@ -1,6 +1,6 @@
 module.exports = {
   // Basic formatting
-  semi: false,
+  semi: true,
   singleQuote: true,
   trailingComma: 'all',
   printWidth: 100,
