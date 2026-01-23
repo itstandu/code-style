@@ -57,25 +57,25 @@ Create `eslint.config.js` (or `eslint.config.mjs`) in your project root:
 #### Base Preset (Minimal)
 
 ```javascript
-const codeStyle = require("@itstandu/code-style");
+const codeStyle = require('@itstandu/code-style')
 
-module.exports = [codeStyle.base, codeStyle.typescript, codeStyle.node];
+module.exports = [codeStyle.base, codeStyle.typescript, codeStyle.node]
 ```
 
 #### Recommended Preset (Better Safety)
 
 ```javascript
-const codeStyle = require("@itstandu/code-style");
+const codeStyle = require('@itstandu/code-style')
 
-module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.node];
+module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.node]
 ```
 
 #### Strict Preset (Opt-in, includes boundaries)
 
 ```javascript
-const codeStyle = require("@itstandu/code-style");
+const codeStyle = require('@itstandu/code-style')
 
-module.exports = [codeStyle.strict, codeStyle.typescript, codeStyle.node];
+module.exports = [codeStyle.strict, codeStyle.typescript, codeStyle.node]
 ```
 
 ### Framework Presets
@@ -83,45 +83,41 @@ module.exports = [codeStyle.strict, codeStyle.typescript, codeStyle.node];
 #### React
 
 ```javascript
-const codeStyle = require("@itstandu/code-style");
+const codeStyle = require('@itstandu/code-style')
 
-module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.react];
+module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.react]
 ```
 
 #### Next.js
 
 ```javascript
-const codeStyle = require("@itstandu/code-style");
+const codeStyle = require('@itstandu/code-style')
 
-module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.next];
+module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.next]
 ```
 
 #### Vue
 
 ```javascript
-const codeStyle = require("@itstandu/code-style");
+const codeStyle = require('@itstandu/code-style')
 
-module.exports = [codeStyle.recommended, codeStyle.vue];
+module.exports = [codeStyle.recommended, codeStyle.vue]
 ```
 
 #### Angular
 
 ```javascript
-const codeStyle = require("@itstandu/code-style");
+const codeStyle = require('@itstandu/code-style')
 
-module.exports = [
-  codeStyle.recommended,
-  codeStyle.typescript,
-  codeStyle.angular,
-];
+module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.angular]
 ```
 
 #### NestJS
 
 ```javascript
-const codeStyle = require("@itstandu/code-style");
+const codeStyle = require('@itstandu/code-style')
 
-module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.nest];
+module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.nest]
 ```
 
 ### Prettier
@@ -129,7 +125,7 @@ module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.nest];
 Create `.prettierrc.js` (or `.prettierrc.cjs`) in your project root:
 
 ```javascript
-module.exports = require("@itstandu/code-style/prettier");
+module.exports = require('@itstandu/code-style/prettier')
 ```
 
 Or add to `package.json`:

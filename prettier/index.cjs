@@ -2,7 +2,7 @@ module.exports = {
   // Basic formatting
   semi: false,
   singleQuote: true,
-  trailingComma: "all",
+  trailingComma: 'all',
   printWidth: 100,
   tabWidth: 2,
   useTabs: false,
@@ -10,19 +10,19 @@ module.exports = {
   // Bracket and spacing
   bracketSpacing: true,
   bracketSameLine: false,
-  arrowParens: "always",
+  arrowParens: 'always',
 
   // JSX/HTML specific
   jsxSingleQuote: false,
   singleAttributePerLine: false,
 
   // Quotes
-  quoteProps: "as-needed",
+  quoteProps: 'as-needed',
 
   // Line endings and whitespace
-  endOfLine: "lf",
-  proseWrap: "preserve",
-  htmlWhitespaceSensitivity: "css",
+  endOfLine: 'lf',
+  proseWrap: 'preserve',
+  htmlWhitespaceSensitivity: 'css',
 
   // Vue specific
   vueIndentScriptAndStyle: false,
@@ -32,8 +32,8 @@ module.exports = {
   requirePragma: false,
 
   // Embedded language formatting
-  embeddedLanguageFormatting: "auto",
+  embeddedLanguageFormatting: 'auto',
 
   // Plugins - order matters: oxc first for parsing, tailwindcss last for class sorting
-  plugins: ["@prettier/plugin-oxc", "prettier-plugin-tailwindcss"],
-};
+  plugins: ['@prettier/plugin-oxc', 'prettier-plugin-tailwindcss'],
+}
