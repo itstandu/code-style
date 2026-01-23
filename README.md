@@ -142,6 +142,46 @@ Or add to `package.json`:
 cp node_modules/@itstandu/code-style/.prettierignore .prettierignore
 ```
 
+### Setup Scripts
+
+Add these scripts to your `package.json` for convenient formatting and linting:
+
+```json
+{
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  }
+}
+```
+
+**Usage:**
+
+- `npm run format` - Format all files with Prettier
+- `npm run format:check` - Check formatting without modifying files (useful for CI)
+- `npm run lint` - Check code for linting errors
+- `npm run lint:fix` - Auto-fix linting issues (including import sorting)
+
+**Recommended workflow:**
+
+Run both format and lint:fix to ensure consistent code style:
+
+```bash
+npm run format && npm run lint:fix
+```
+
+Or create a combined script:
+
+```json
+{
+  "scripts": {
+    "style": "npm run format && npm run lint:fix"
+  }
+}
+```
+
 ### Ensuring Consistent Formatting
 
 This package ensures **100% Prettier coverage** for all formatting:
