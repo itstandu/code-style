@@ -1,17 +1,27 @@
 {
   "name": "@itstandu/code-style",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Production-ready shared ESLint + Prettier configuration for JavaScript and TypeScript projects",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "./index.js",
+  "module": "./index.mjs",
   "exports": {
-    ".": "./index.js",
-    "./prettier": "./prettier/index.cjs"
+    ".": {
+      "require": "./index.js",
+      "import": "./index.mjs",
+      "default": "./index.js"
+    },
+    "./prettier": {
+      "require": "./prettier/index.cjs",
+      "import": "./prettier/index.mjs",
+      "default": "./prettier/index.cjs"
+    }
   },
   "files": [
     "eslint",
     "prettier",
     "index.js",
+    "index.mjs",
     "README.md",
     ".prettierignore"
   ],

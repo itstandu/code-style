@@ -1,0 +1,49 @@
+export default {
+  // Basic formatting
+  semi: true,
+  singleQuote: true,
+  trailingComma: 'all',
+  printWidth: 80,
+  tabWidth: 2,
+  useTabs: false,
+
+  // Bracket and spacing
+  bracketSpacing: true,
+  bracketSameLine: false,
+  arrowParens: 'always',
+
+  // JSX/HTML specific
+  jsxSingleQuote: false,
+  singleAttributePerLine: false,
+
+  // Quotes
+  quoteProps: 'as-needed',
+
+  // Line endings and whitespace
+  endOfLine: 'lf',
+  proseWrap: 'preserve',
+  htmlWhitespaceSensitivity: 'css',
+
+  // Vue specific
+  vueIndentScriptAndStyle: false,
+
+  // Pragma (for legacy systems)
+  insertPragma: false,
+  requirePragma: false,
+
+  // Embedded language formatting
+  embeddedLanguageFormatting: 'auto',
+
+  // XML/SVG specific options
+  xmlQuoteAttributes: 'preserve',
+  xmlSelfClosingSpace: true,
+  xmlSortAttributesByKey: false,
+  xmlWhitespaceSensitivity: 'strict',
+
+  // Plugins - order matters: oxc first for parsing, tailwindcss last for class sorting
+  plugins: [
+    '@prettier/plugin-oxc',
+    '@prettier/plugin-xml',
+    'prettier-plugin-tailwindcss',
+  ],
+}

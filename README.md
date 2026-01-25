@@ -11,6 +11,7 @@ Production-ready shared ESLint + Prettier configuration library for JavaScript a
 - **Prettier v3** with Tailwind CSS support
 - Supports **JavaScript** and **TypeScript**
 - **Full file type support** - Formats all common file types: JS/JSX, TS/TSX, JSON, CSS/SCSS/LESS, HTML, Markdown, YAML, GraphQL, and more
+- **Dual package exports** - Supports both CommonJS (`require`) and ES modules (`import`)
 - Framework presets: **React**, **Next.js**, **Vue**, **Angular**, **NestJS**
 - **Node.js** backend support
 - Stable import sorting with `eslint-plugin-simple-import-sort`
@@ -55,16 +56,18 @@ After installation, you only need to configure **2 files** to get started:
 
 ### 1. ESLint Config
 
-Create `eslint.config.js` (or `eslint.config.mjs`) in your project root:
+Create `eslint.config.js` (CommonJS) or `eslint.config.mjs` (ES modules) in your project root:
 
-**For TypeScript projects:**
+**CommonJS (`eslint.config.js`):**
+
+For TypeScript projects:
 ```javascript
 const codeStyle = require('@itstandu/code-style')
 
 module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.node]
 ```
 
-**For React/Next.js:**
+For React/Next.js:
 ```javascript
 const codeStyle = require('@itstandu/code-style')
 
@@ -72,30 +75,38 @@ module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.react]
 // or codeStyle.next for Next.js
 ```
 
-**For Vue:**
-```javascript
-const codeStyle = require('@itstandu/code-style')
+**ES Modules (`eslint.config.mjs`):**
 
-module.exports = [codeStyle.recommended, codeStyle.vue]
+For TypeScript projects:
+```javascript
+import codeStyle from '@itstandu/code-style'
+
+export default [codeStyle.recommended, codeStyle.typescript, codeStyle.node]
 ```
 
-**For JavaScript-only projects:**
+For React/Next.js:
 ```javascript
-const codeStyle = require('@itstandu/code-style')
+import codeStyle from '@itstandu/code-style'
 
-module.exports = [codeStyle.recommended, codeStyle.javascript, codeStyle.node]
+export default [codeStyle.recommended, codeStyle.typescript, codeStyle.react]
+// or codeStyle.next for Next.js
 ```
 
 ### 2. Prettier Config
 
-Create `.prettierrc.js` (or `.prettierrc.cjs`) in your project root:
-
+**CommonJS (`.prettierrc.js` or `.prettierrc.cjs`):**
 ```javascript
 module.exports = require('@itstandu/code-style/prettier')
 ```
 
-Or add to `package.json`:
+**ES Modules (`.prettierrc.mjs`):**
+```javascript
+import prettierConfig from '@itstandu/code-style/prettier'
 
+export default prettierConfig
+```
+
+**Or add to `package.json`:**
 ```json
 {
   "prettier": "@itstandu/code-style/prettier"
@@ -106,21 +117,57 @@ Or add to `package.json`:
 
 ## Usage
 
+### CommonJS vs ES Modules
+
+This package supports both CommonJS and ES modules:
+
+- **CommonJS**: Use `require()` and `module.exports` (works with `.js` files)
+- **ES Modules**: Use `import` and `export` (works with `.mjs` files or `"type": "module"`)
+
+The package automatically resolves to the correct format based on your import style.
+
 ### Available Presets
 
 #### Base Preset (Minimal)
+
+**CommonJS:**
 ```javascript
+const codeStyle = require('@itstandu/code-style')
 module.exports = [codeStyle.base, codeStyle.typescript, codeStyle.node]
 ```
 
-#### Recommended Preset (Default, Better Safety)
+**ES Modules:**
 ```javascript
+import codeStyle from '@itstandu/code-style'
+export default [codeStyle.base, codeStyle.typescript, codeStyle.node]
+```
+
+#### Recommended Preset (Default, Better Safety)
+
+**CommonJS:**
+```javascript
+const codeStyle = require('@itstandu/code-style')
 module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.node]
 ```
 
-#### Strict Preset (Opt-in, includes boundaries)
+**ES Modules:**
 ```javascript
+import codeStyle from '@itstandu/code-style'
+export default [codeStyle.recommended, codeStyle.typescript, codeStyle.node]
+```
+
+#### Strict Preset (Opt-in, includes boundaries)
+
+**CommonJS:**
+```javascript
+const codeStyle = require('@itstandu/code-style')
 module.exports = [codeStyle.strict, codeStyle.typescript, codeStyle.node]
+```
+
+**ES Modules:**
+```javascript
+import codeStyle from '@itstandu/code-style'
+export default [codeStyle.strict, codeStyle.typescript, codeStyle.node]
 ```
 
 ### Framework Presets
