@@ -2,6 +2,7 @@ const base = require('./base')
 
 module.exports = {
   ...base,
+  files: ['**/*.js', '**/*.jsx', '**/*.mjs', '**/*.cjs'],
   languageOptions: {
     ...base.languageOptions,
     parserOptions: {

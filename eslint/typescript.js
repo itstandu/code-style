@@ -2,6 +2,7 @@ const base = require('./base');
 
 module.exports = {
   ...base,
+  files: ['**/*.ts', '**/*.tsx'],
   languageOptions: {
     ...base.languageOptions,
     parser: require('@typescript-eslint/parser'),
