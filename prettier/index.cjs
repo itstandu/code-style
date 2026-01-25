@@ -34,6 +34,16 @@ module.exports = {
   // Embedded language formatting
   embeddedLanguageFormatting: 'auto',
 
+  // XML/SVG specific options
+  xmlQuoteAttributes: 'preserve',
+  xmlSelfClosingSpace: true,
+  xmlSortAttributesByKey: false,
+  xmlWhitespaceSensitivity: 'strict',
+
   // Plugins - order matters: oxc first for parsing, tailwindcss last for class sorting
-  plugins: ['@prettier/plugin-oxc', 'prettier-plugin-tailwindcss'],
+  plugins: [
+    '@prettier/plugin-oxc',
+    '@prettier/plugin-xml',
+    'prettier-plugin-tailwindcss',
+  ],
 }

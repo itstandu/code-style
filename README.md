@@ -10,6 +10,7 @@ Production-ready shared ESLint + Prettier configuration library for JavaScript a
 - **ESLint v9** (Flat Config)
 - **Prettier v3** with Tailwind CSS support
 - Supports **JavaScript** and **TypeScript**
+- **Full file type support** - Formats all common file types: JS/JSX, TS/TSX, JSON, CSS/SCSS/LESS, HTML, Markdown, YAML, GraphQL, and more
 - Framework presets: **React**, **Next.js**, **Vue**, **Angular**, **NestJS**
 - **Node.js** backend support
 - Stable import sorting with `eslint-plugin-simple-import-sort`
@@ -48,79 +49,44 @@ bun add -d @itstandu/code-style
 
 **Note:** You do NOT need to install `eslint`, `prettier`, or any plugins separately. This package includes all dependencies.
 
-## Usage
+## Quick Start
 
-### ESLint
+After installation, you only need to configure **2 files** to get started:
+
+### 1. ESLint Config
 
 Create `eslint.config.js` (or `eslint.config.mjs`) in your project root:
 
-#### Base Preset (Minimal)
-
-```javascript
-const codeStyle = require('@itstandu/code-style')
-
-module.exports = [codeStyle.base, codeStyle.typescript, codeStyle.node]
-```
-
-#### Recommended Preset (Better Safety)
-
+**For TypeScript projects:**
 ```javascript
 const codeStyle = require('@itstandu/code-style')
 
 module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.node]
 ```
 
-#### Strict Preset (Opt-in, includes boundaries)
-
-```javascript
-const codeStyle = require('@itstandu/code-style')
-
-module.exports = [codeStyle.strict, codeStyle.typescript, codeStyle.node]
-```
-
-### Framework Presets
-
-#### React
-
+**For React/Next.js:**
 ```javascript
 const codeStyle = require('@itstandu/code-style')
 
 module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.react]
+// or codeStyle.next for Next.js
 ```
 
-#### Next.js
-
-```javascript
-const codeStyle = require('@itstandu/code-style')
-
-module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.next]
-```
-
-#### Vue
-
+**For Vue:**
 ```javascript
 const codeStyle = require('@itstandu/code-style')
 
 module.exports = [codeStyle.recommended, codeStyle.vue]
 ```
 
-#### Angular
-
+**For JavaScript-only projects:**
 ```javascript
 const codeStyle = require('@itstandu/code-style')
 
-module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.angular]
+module.exports = [codeStyle.recommended, codeStyle.javascript, codeStyle.node]
 ```
 
-#### NestJS
-
-```javascript
-const codeStyle = require('@itstandu/code-style')
-
-module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.nest]
-```
-
-### Prettier
+### 2. Prettier Config
 
 Create `.prettierrc.js` (or `.prettierrc.cjs`) in your project root:
 
@@ -136,61 +102,82 @@ Or add to `package.json`:
 }
 ```
 
-**Optional:** Copy `.prettierignore` from this package to your project root to ignore common files:
+**That's it!** You're ready to use ESLint and Prettier. Run `npx eslint .` and `npx prettier --write .` to test.
 
-```bash
-cp node_modules/@itstandu/code-style/.prettierignore .prettierignore
+## Usage
+
+### Available Presets
+
+#### Base Preset (Minimal)
+```javascript
+module.exports = [codeStyle.base, codeStyle.typescript, codeStyle.node]
 ```
 
-### Setup Scripts
+#### Recommended Preset (Default, Better Safety)
+```javascript
+module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.node]
+```
+
+#### Strict Preset (Opt-in, includes boundaries)
+```javascript
+module.exports = [codeStyle.strict, codeStyle.typescript, codeStyle.node]
+```
+
+### Framework Presets
+
+- **React**: `codeStyle.react`
+- **Next.js**: `codeStyle.next`
+- **Vue**: `codeStyle.vue`
+- **Angular**: `codeStyle.angular`
+- **NestJS**: `codeStyle.nest`
+
+See [Available Configs](#available-configs) section for full list.
+
+## Optional Setup
+
+### Package Scripts (Optional)
 
 Add these scripts to your `package.json` for convenient formatting and linting:
 
 ```json
 {
   "scripts": {
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   }
 }
 ```
 
-**Usage:**
+**Note:** Prettier automatically formats all supported file types (JS/JSX, TS/TSX, JSON, CSS/SCSS/LESS, HTML, Markdown, YAML, GraphQL, Vue, SVG, etc.). Files listed in `.prettierignore` will be excluded.
 
-- `npm run format` - Format all files with Prettier
-- `npm run format:check` - Check formatting without modifying files (useful for CI)
-- `npm run lint` - Check code for linting errors
-- `npm run lint:fix` - Auto-fix linting issues (including import sorting)
+### .prettierignore (Optional)
 
-**Recommended workflow:**
-
-Run both format and lint:fix to ensure consistent code style:
+Copy `.prettierignore` from this package to exclude common files:
 
 ```bash
-npm run format && npm run lint:fix
+cp node_modules/@itstandu/code-style/.prettierignore .prettierignore
 ```
 
-Or create a combined script:
+## Advanced
 
-```json
-{
-  "scripts": {
-    "style": "npm run format && npm run lint:fix"
-  }
-}
-```
+### Supported File Types
 
-### Ensuring Consistent Formatting
+Prettier automatically formats all common file types:
 
-This package ensures **100% Prettier coverage** for all formatting:
+**Built-in support:**
+- JavaScript/TypeScript: `.js`, `.jsx`, `.ts`, `.tsx`, `.mjs`, `.cjs`
+- JSON: `.json`, `.jsonc`
+- CSS: `.css`, `.scss`, `.sass`, `.less`
+- HTML: `.html`, `.htm`
+- Markdown: `.md`, `.mdx`
+- YAML: `.yaml`, `.yml`
+- GraphQL: `.graphql`, `.gql`
 
-- ✅ All ESLint formatting rules are disabled via `eslint-config-prettier`
-- ✅ React/JSX formatting rules are disabled (Prettier handles JSX)
-- ✅ Vue template formatting rules are disabled (Prettier handles Vue)
-- ✅ Comprehensive Prettier options cover all formatting scenarios
-- ✅ Tailwind CSS class sorting is automatic (via `prettier-plugin-tailwindcss`)
+**Plugin support (included):**
+- XML/SVG: `.xml`, `.svg` (via `@prettier/plugin-xml`)
+- Vue: `.vue` (built-in Prettier support)
 
 ### Import Sorting Philosophy
 
@@ -212,12 +199,19 @@ This package ensures **100% Prettier coverage** for all formatting:
 
 **Result:** Clean separation of concerns, no conflicts, battle-tested approach.
 
-**Important:** Make sure your editor/IDE:
+### Ensuring Consistent Formatting
 
-- Uses Prettier as default formatter with `formatOnSave`
-- Runs ESLint auto-fix on save (`source.fixAll.eslint`) for import sorting
+This package ensures **100% Prettier coverage** for all formatting:
 
-### Editor Configuration
+- ✅ All ESLint formatting rules are disabled via `eslint-config-prettier`
+- ✅ React/JSX formatting rules are disabled (Prettier handles JSX)
+- ✅ Vue template formatting rules are disabled (Prettier handles Vue)
+- ✅ Comprehensive Prettier options cover all formatting scenarios
+- ✅ Tailwind CSS class sorting is automatic (via `prettier-plugin-tailwindcss`)
+
+### Editor Configuration (Optional)
+
+For the best experience, configure your editor to format on save:
 
 #### VS Code / Cursor
 
@@ -240,6 +234,36 @@ Add to your workspace `.vscode/settings.json` or user settings:
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[graphql]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
