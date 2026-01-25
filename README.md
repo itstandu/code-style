@@ -48,7 +48,27 @@ yarn add -D @itstandu/code-style
 bun add -d @itstandu/code-style
 ```
 
-**Note:** You do NOT need to install `eslint`, `prettier`, or any plugins separately. This package includes all dependencies.
+**Note:** 
+- ESLint plugins are bundled and don't need separate installation.
+- Prettier plugins are included but **Prettier requires plugins to be installed in your project's `node_modules`** (not in dependencies of this package). 
+
+**For pnpm users:** You need to install Prettier plugins in your project:
+
+```bash
+pnpm add -D prettier @prettier/plugin-oxc @prettier/plugin-xml prettier-plugin-tailwindcss
+```
+
+**For npm/yarn users:** Plugins should work automatically, but if you encounter issues, install them explicitly:
+
+```bash
+# npm
+npm install -D prettier @prettier/plugin-oxc @prettier/plugin-xml prettier-plugin-tailwindcss
+
+# yarn
+yarn add -D prettier @prettier/plugin-oxc @prettier/plugin-xml prettier-plugin-tailwindcss
+```
+
+The config automatically detects and only loads plugins that are available, so it won't crash if some are missing.
 
 ## Quick Start
 

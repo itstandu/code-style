@@ -1,3 +1,22 @@
+// Helper function to try requiring a plugin, returns null if not found
+function tryRequire(pluginName) {
+  try {
+    return require(pluginName)
+  } catch (e) {
+    return null
+  }
+}
+
+// Build plugins array - only include plugins that are installed
+const plugins = []
+const oxcPlugin = tryRequire('@prettier/plugin-oxc')
+const xmlPlugin = tryRequire('@prettier/plugin-xml')
+const tailwindPlugin = tryRequire('prettier-plugin-tailwindcss')
+
+if (oxcPlugin) plugins.push('@prettier/plugin-oxc')
+if (xmlPlugin) plugins.push('@prettier/plugin-xml')
+if (tailwindPlugin) plugins.push('prettier-plugin-tailwindcss')
+
 module.exports = {
   // Basic formatting
   semi: true,
@@ -40,10 +59,7 @@ module.exports = {
   xmlSortAttributesByKey: false,
   xmlWhitespaceSensitivity: 'strict',
 
-  // Plugins - order matters: oxc first for parsing, tailwindcss last for class sorting
-  plugins: [
-    '@prettier/plugin-oxc',
-    '@prettier/plugin-xml',
-    'prettier-plugin-tailwindcss',
-  ],
+  // Plugins - automatically detected, only loaded if installed
+  // Order matters: oxc first for parsing, tailwindcss last for class sorting
+  plugins,
 }
