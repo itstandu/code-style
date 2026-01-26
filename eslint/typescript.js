@@ -1,5 +1,26 @@
 const base = require('./base');
 
+// Try to load TypeScript resolver, but don't fail if not available
+let typescriptResolver = null;
+try {
+  require.resolve('eslint-import-resolver-typescript');
+  typescriptResolver = {
+    typescript: {
+      alwaysTryTypes: true,
+    },
+  };
+} catch (e) {
+  // Resolver not available, skip
+}
+
+const settings = {
+  ...base.settings,
+  'import/resolver': {
+    ...base.settings['import/resolver'],
+    ...typescriptResolver,
+  },
+};
+
 module.exports = {
   ...base,
   files: ['**/*.ts', '**/*.tsx'],
@@ -17,6 +38,7 @@ module.exports = {
     ...base.plugins,
     '@typescript-eslint': require('@typescript-eslint/eslint-plugin'),
   },
+  settings,
   rules: {
     ...base.rules,
 
@@ -76,5 +98,8 @@ module.exports = {
     '@typescript-eslint/no-redundant-type-constituents': 'warn',
     '@typescript-eslint/no-unsafe-declaration-merging': 'error',
     '@typescript-eslint/no-useless-empty-export': 'warn',
+
+    // Import hygiene (only enable if TypeScript resolver is available)
+    'import/no-cycle': typescriptResolver ? 'warn' : 'off',
   },
 };

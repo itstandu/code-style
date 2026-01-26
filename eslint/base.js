@@ -26,9 +26,6 @@ module.exports = {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.mjs', '.cjs'],
       },
-      typescript: {
-        alwaysTryTypes: true,
-      },
     },
   },
   rules: {

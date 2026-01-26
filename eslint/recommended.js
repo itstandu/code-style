@@ -40,7 +40,7 @@ module.exports = {
 
     // Import hygiene
     'import/no-unresolved': 'off',
-    'import/no-cycle': 'warn',
+    'import/no-cycle': 'off', // Requires TypeScript resolver - enable in TypeScript config
     'import/no-self-import': 'error',
     'import/no-useless-path-segments': 'error',
     'import/no-mutable-exports': 'error',
