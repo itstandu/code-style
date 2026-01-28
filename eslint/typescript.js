@@ -23,7 +23,7 @@ const settings = {
 
 module.exports = {
   ...base,
-  files: ['**/*.ts', '**/*.tsx'],
+  files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'],
   languageOptions: {
     ...base.languageOptions,
     parser: require('@typescript-eslint/parser'),
