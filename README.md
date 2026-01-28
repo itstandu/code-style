@@ -99,14 +99,14 @@ module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.react]
 
 For TypeScript projects:
 ```javascript
-import codeStyle from '@itstandu/code-style'
+import * as codeStyle from '@itstandu/code-style'
 
 export default [codeStyle.recommended, codeStyle.typescript, codeStyle.node]
 ```
 
 For React/Next.js:
 ```javascript
-import codeStyle from '@itstandu/code-style'
+import * as codeStyle from '@itstandu/code-style'
 
 export default [codeStyle.recommended, codeStyle.typescript, codeStyle.react]
 // or codeStyle.next for Next.js
@@ -158,7 +158,7 @@ module.exports = [codeStyle.base, codeStyle.typescript, codeStyle.node]
 
 **ES Modules:**
 ```javascript
-import codeStyle from '@itstandu/code-style'
+import * as codeStyle from '@itstandu/code-style'
 export default [codeStyle.base, codeStyle.typescript, codeStyle.node]
 ```
 
@@ -172,7 +172,7 @@ module.exports = [codeStyle.recommended, codeStyle.typescript, codeStyle.node]
 
 **ES Modules:**
 ```javascript
-import codeStyle from '@itstandu/code-style'
+import * as codeStyle from '@itstandu/code-style'
 export default [codeStyle.recommended, codeStyle.typescript, codeStyle.node]
 ```
 
@@ -186,7 +186,7 @@ module.exports = [codeStyle.strict, codeStyle.typescript, codeStyle.node]
 
 **ES Modules:**
 ```javascript
-import codeStyle from '@itstandu/code-style'
+import * as codeStyle from '@itstandu/code-style'
 export default [codeStyle.strict, codeStyle.typescript, codeStyle.node]
 ```
 
